@@ -4,4 +4,6 @@ public interface Checksum {
 
     void update(byte[] b, int start, int length);
     long getValue();
+    void reset();
+    void update(int b);
 }
