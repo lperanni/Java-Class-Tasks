@@ -2,7 +2,7 @@ package com.lucianoperanni.vjezba2.Algorithms;
 
 public class CRC32 implements Checksum {
 
-    private long returnValue;
+    private long returnValue = 0;
     private int crc = -1;
 
     @Override
@@ -26,7 +26,7 @@ public class CRC32 implements Checksum {
     @Override
     public void reset() {
         crc = -1;
-        returnValue = crc;
+        returnValue = 0;
     }
 
     public void update(byte[] b){
