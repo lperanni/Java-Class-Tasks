@@ -21,7 +21,7 @@ class CRC32Test {
     void update(int b) {
 
         checksum.update(b);
-        Assert.assertEquals(1908338681, checksum.getValue());
+        Assert.assertEquals(1908338681L, checksum.getValue());
         checksum.reset();
     }
 
