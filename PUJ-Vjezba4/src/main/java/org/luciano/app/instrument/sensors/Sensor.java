@@ -24,21 +24,23 @@ public class Sensor implements Runnable{
         this.publishTime = publishTime;
     }
 
-    public Sensor(){};
+    public Sensor(){}
 
     public byte[] getMeasure() {
         int val = (int) (Math.random() * ((max - min) + 1)) + min;
-        return (val / (factor * factor * 10) + " " + unit + "\n").getBytes();
+        return (val / (factor * 10) + " " + unit + "\n").getBytes();
     }
 
     @Override
     public void run() {
-        MqttMessage message = new MqttMessage(getMeasure());
-        try {
-            client.publish("Luciano/mjerac/" + name , message);
-            Thread.sleep(publishTime);
-        } catch (MqttException | InterruptedException e) {
-            e.printStackTrace();
+        while(true){
+            try {
+                client.publish("Luciano/mjerac/" + name , new MqttMessage(getMeasure()));
+                Thread.sleep(publishTime);
+            } catch (MqttException | InterruptedException e) {
+                System.out.println("Sensor thread interrupted");
+                e.printStackTrace();
+            }
         }
 
     }
