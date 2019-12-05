@@ -1,0 +1,5 @@
+{
+  "broker_protocol": "tcp",
+  "broker_host": "localhost",
+  "broker_port": 1883
+}

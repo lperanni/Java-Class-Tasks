@@ -1,0 +1,34 @@
+[
+    {
+      "name": "Temperature",
+      "min": -32668,
+      "max": 32668,
+      "factor": 10,
+      "unit": "C",
+      "publishTime": 2000
+    },
+    {
+      "name": "Pressure",
+      "min": 0,
+      "max": 65336,
+      "factor": 1000,
+      "unit": "Bar",
+      "publishTime": 7000
+    },
+    {
+      "name": "UsageMinute",
+      "min": 0,
+      "max": 65336,
+      "factor": 1,
+      "unit": "litre",
+      "publishTime": 5000
+    },
+    {
+      "name": "UsageWeek",
+      "min": 0,
+      "max": 65336,
+      "factor": 10,
+      "unit": "cubic metres",
+      "publishTime": 4000
+    }
+]
