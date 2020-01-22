@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - MqttClientApplication",
+      "request": "launch",
+      "mainClass": "org.luciano.vjezba4.MqttClientApplication",
+      "projectName": "vjezba5"
+    }
+  ]
+}

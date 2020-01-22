@@ -21,7 +21,7 @@ public class MainClientWindow extends JFrame implements MqttCallback {
         this.client = subscriber.call();
         client.setCallback(this);
         client.connect();
-        client.subscribe("Luciano/mjerac/#");
+        client.subscribe("#");
 
         //Set layout, dimensions and padding for GUI
         panel = new JPanel( new GridLayout(9,3 ));
@@ -41,11 +41,11 @@ public class MainClientWindow extends JFrame implements MqttCallback {
 
         //Check if topic already exists
         for(Component c : panel.getComponents()){
-            if(c instanceof JLabel && ((JLabel) c).getText().equals(s)){
+            if(c instanceof JTextField && c.getName().equals(s)) {
+                ((JTextField) c).setText(message.toString());
                 exists = true;
             }
         }
-
         //Create new set of GUI elements for new Topic
         if(!exists){
             JLabel label = new JLabel(s);
@@ -54,16 +54,6 @@ public class MainClientWindow extends JFrame implements MqttCallback {
             this.panel.add(label);
             this.panel.add(textField);
 
-        } else {
-            //Change values of existing Topic elements
-            for(Component c : panel.getComponents()){
-                if(c instanceof JLabel && ((JLabel) c).getText().equals(s)){
-                    ((JLabel) c).setText(s);
-                }
-                if(c instanceof JTextField && c.getName().equals(s)) {
-                    ((JTextField) c).setText(message.toString());
-                }
-            }
         }
         panel.revalidate();
         panel.repaint();
